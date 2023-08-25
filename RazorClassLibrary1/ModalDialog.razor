@@ -1,0 +1,27 @@
+﻿@page "/modaldialog"
+
+
+<PageTitle>Home</PageTitle>
+
+<BweDialog Show="showDialog"
+           OnCancel="DialogCancelHandler"
+           OnOk="DialogOkHandler">
+    <Title>Quick List [@(Items.Count + 1)]</Title>
+    <Body>
+        Enter New Item:
+        <input @bind="NewItem" />
+    </Body>
+</BweDialog>
+
+<ol>
+    @foreach (var item in Items)
+    {
+        <li>@item</li>
+    }
+</ol>
+
+<div class="grid-modal-container">
+    <div class="item1">
+        <button @onclick="OpenDialog">Show Dialog</button>
+    </div>
+</div>
